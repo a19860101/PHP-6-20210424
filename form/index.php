@@ -49,6 +49,10 @@
                         <input type="checkbox" name="skill[]" class="form-check-input" value="3D動畫">
                         <label for="" class="form-check-label">3D動畫</label>
                     </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">備註</label>
+                        <textarea name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
                     <input type="submit" value="送出" class='btn btn-primary'>
                 </form>
             </div>

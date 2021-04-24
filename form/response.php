@@ -22,6 +22,8 @@
     // echo "<br>";
     // echo $_REQUEST["mail"];
 
+    print_r($_REQUEST);
+    echo "<br>";
     extract($_REQUEST);
     echo $name;
     echo "<br>";
@@ -32,3 +34,5 @@
     echo $edu;
     echo "<br>";
     echo implode(",",$skill);
+    echo "<br>";
+    echo $comment;
