@@ -1,13 +1,24 @@
 <?php
+    //* 第一種
+    // require_once("conn.php");
+    
+    // // $sql = "SELECT * FROM students WHERE id =".$_GET["id"];
+    
+    // extract($_GET);
+    // $sql = "SELECT * FROM students WHERE id =".$id;
+    // $result = mysqli_query($conn,$sql);
+    // $student = mysqli_fetch_assoc($result);
+    // print_r($student);
+    //* 第二種prepare
     require_once("conn.php");
-    
-    // $sql = "SELECT * FROM students WHERE id =".$_GET["id"];
-    
     extract($_GET);
-    $sql = "SELECT * FROM students WHERE id =".$id;
-    $result = mysqli_query($conn,$sql);
-    $student = mysqli_fetch_assoc($result);
-    print_r($student);
+    $sql = "SELECT * FROM students WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i",$id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $student = $result->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
