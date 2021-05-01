@@ -28,5 +28,10 @@
         <li><?php echo $student["comment"]; ?></li>
     </ul>
     <a href="index.php">學員列表</a>
+    <hr>
+    <form action="delete.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $student["id"];?>">
+        <input type="submit" value="刪除">
+    </form>
 </body>
 </html>
