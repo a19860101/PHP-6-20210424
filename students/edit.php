@@ -27,30 +27,33 @@
         </div>
         <div class="mb-3">
             <label for="gender" class="form-label">性別</label>
-            <input type="radio" name="gender" value="男" id="male" class="form-check-input">
+            <input type="radio" name="gender" value="男" id="male" class="form-check-input" <?php echo $student["gender"] == "男" ? "checked":""; ?>>
             <label for="male"  class="form-check-label">男</label>
-            <input type="radio" name="gender" value="女" id="female" class="form-check-input">
+            <input type="radio" name="gender" value="女" id="female" class="form-check-input" <?php echo $student["gender"] == "女" ? "checked":""; ?>>
             <label for="female" class="form-check-label">女</label>
         </div>
         <div class="mb-3">
             <label for="edu" class="form-label">學歷</label>
             <select name="edu" id="edu" class="form-select">
-                <option value="國小">國小</option>
-                <option value="國中">國中</option>
-                <option value="高中職">高中職</option>
-                <option value="大專院校">大專院校</option>
-                <option value="研究所以上">研究所以上</option>
+                <option value="國小" <?php echo $student["edu"]=="國小"?"selected":""; ?>>國小</option>
+                <option value="國中" <?php echo $student["edu"]=="國中"?"selected":""; ?>>國中</option>
+                <option value="高中職" <?php echo $student["edu"]=="高中職"?"selected":""; ?>>高中職</option>
+                <option value="大專院校" <?php echo $student["edu"]=="大專院校"?"selected":""; ?>>大專院校</option>
+                <option value="研究所以上" <?php echo $student["edu"]=="研究所以上"?"selected":""; ?>>研究所以上</option>
             </select>
         </div>
         <div class="mb-3">
+            <?php
+                $skills = explode(",",$student["skill"]);
+            ?>
             <label for="" class="form-label">專長</label>
-            <input type="checkbox" name="skill[]" class="form-check-input" value="平面設計">
+            <input type="checkbox" name="skill[]" class="form-check-input" value="平面設計" <?php echo in_array("平面設計",$skills)?"checked":""; ?>>
             <label for="" class="form-check-label">平面設計</label>
-            <input type="checkbox" name="skill[]" class="form-check-input" value="網頁設計">
+            <input type="checkbox" name="skill[]" class="form-check-input" value="網頁設計" <?php echo in_array("網頁設計",$skills)?"checked":""; ?>>
             <label for="" class="form-check-label">網頁設計</label>
-            <input type="checkbox" name="skill[]" class="form-check-input" value="影視剪輯">
+            <input type="checkbox" name="skill[]" class="form-check-input" value="影視剪輯" <?php echo in_array("影視剪輯",$skills)?"checked":""; ?>>
             <label for="" class="form-check-label">影視剪輯</label>
-            <input type="checkbox" name="skill[]" class="form-check-input" value="3D動畫">
+            <input type="checkbox" name="skill[]" class="form-check-input" value="3D動畫" <?php echo in_array("3D動畫",$skills)?"checked":""; ?>>
             <label for="" class="form-check-label">3D動畫</label>
         </div>
         <div class="mb-3">
