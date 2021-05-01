@@ -9,6 +9,7 @@
     // $result = mysqli_query($conn,$sql);
     // $student = mysqli_fetch_assoc($result);
     // print_r($student);
+    
     //* 第二種prepare
     require_once("conn.php");
     extract($_GET);
