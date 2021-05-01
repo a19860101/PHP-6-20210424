@@ -27,5 +27,6 @@
         <li><?php echo $student["skill"]; ?></li>
         <li><?php echo $student["comment"]; ?></li>
     </ul>
+    <a href="index.php">學員列表</a>
 </body>
 </html>

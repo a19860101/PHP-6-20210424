@@ -24,6 +24,7 @@
     </style>
 </head>
 <body>
+    <a href="create.php">新增學員資料</a>
     <table>
         <tr>
             <th>#</th>
