@@ -3,7 +3,10 @@
     $sql = "SELECT * FROM students";
     $result = mysqli_query($conn,$sql);
     // 
-    
+    $students = array();
+    while($row = mysqli_fetch_assoc($result)){
+        $students[] = $row;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,13 +32,13 @@
             <th>性別</th>
             <th>學歷</th>
         </tr>
-    <?php while($row = mysqli_fetch_assoc($result)){ ?>
+    <?php foreach($students as $student){ ?>
         <tr>
-            <td><?php echo $row["id"]; ?></td>
-            <td><?php echo $row["name"]; ?></td>
-            <td><?php echo $row["mail"]; ?></td>
-            <td><?php echo $row["gender"]; ?></td>
-            <td><?php echo $row["edu"]; ?></td>
+            <td><?php echo $student["id"]; ?></td>
+            <td><?php echo $student["name"]; ?></td>
+            <td><?php echo $student["mail"]; ?></td>
+            <td><?php echo $student["gender"]; ?></td>
+            <td><?php echo $student["edu"]; ?></td>
         </tr>
     <?php } ?>
     </table>
