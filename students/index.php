@@ -1,10 +1,18 @@
 <?php
+    //* 第一種
+    // require_once("conn.php");
+    // $sql = "SELECT * FROM students";
+    // $result = mysqli_query($conn,$sql);
+    // $students = array();
+    // while($row = mysqli_fetch_assoc($result)){
+    //     $students[] = $row;
+    // }
+    //* 第二種
     require_once("conn.php");
     $sql = "SELECT * FROM students";
-    $result = mysqli_query($conn,$sql);
-    // 
+    $result = $conn->query($sql);
     $students = array();
-    while($row = mysqli_fetch_assoc($result)){
+    while($row = $result->fetch_assoc()){
         $students[] = $row;
     }
 ?>
