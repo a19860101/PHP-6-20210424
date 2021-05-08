@@ -11,10 +11,11 @@
     require_once("conn.php");
     $sql = "SELECT * FROM students";
     $result = $conn->query($sql);
-    $students = array();
-    while($row = $result->fetch_assoc()){
-        $students[] = $row;
-    }
+    // $students = array();
+    // while($row = $result->fetch_assoc()){
+    //     $students[] = $row;
+    // }
+    $students = $result->fetch_all(MYSQLI_ASSOC)
 ?>
 <!DOCTYPE html>
 <html lang="en">
