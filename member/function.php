@@ -22,3 +22,20 @@
             echo $e->getMessage();
         }
     }
+    function auth($request){
+        $pdo = pdo();
+        extract($request);
+    
+        $sql = "SELECT * FROM users WHERE user = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$user]);
+        $row = $stmt->fetch();
+        $pw = sha1(md5($pw));
+        if($pw == $row["pw"]){
+            $_SESSION["AUTH"] = $row;
+        }else{
+            echo "<script>alert('帳號或密碼錯誤')</script>";
+        }
+
+
+    }
