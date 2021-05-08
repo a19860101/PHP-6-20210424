@@ -5,7 +5,9 @@
     $db_name = "php-6-20210424";
     $db_charset = "utf8mb4";
 
-
-    $dsn = "mysql:host={$db_host};dbname={$db_name};charset={$db_charset}";
-
-    $pdo = new PDO($dsn, $db_user, $db_pw);
+    try {
+        $dsn = "mysql:host={$db_host};dbname={$db_name};charset={$db_charset}";
+        $pdo = new PDO($dsn, $db_user, $db_pw);
+    }catch(PDOException $e){
+        print_r($e->getMessage());
+    }
