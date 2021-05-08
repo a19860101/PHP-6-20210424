@@ -38,6 +38,39 @@
             echo $e->getMessage();
         }
     }
+    function edit($request){  
+        global $pdo;
+        extract($request);
+        $sql = "SELECT * FROM students WHERE id = ? ";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt ->execute([$id]);
+            $student = $stmt->fetch();
+            return $student;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }      
+    }
+    function update($request){
+        global $pdo;
+        extract($request);
+        $sql = "UPDATE students SET 
+            name    =?,
+            mail    =?,
+            gender  =?,
+            edu     =?,
+            skill   =?,
+            comment =?
+            WHERE id = ?
+            ";
+        $stmt = $pdo->prepare($sql);
+        $skill = implode(",",$skill);
+        try {
+            $stmt->execute([$name,$mail,$gender,$edu,$skill,$comment,$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     function delete($request){
         global $pdo;
         extract($request);

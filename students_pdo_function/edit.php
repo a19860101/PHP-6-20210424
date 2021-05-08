@@ -1,16 +1,8 @@
 <?php
     require_once("pdo.php");
-    extract($_REQUEST);
-   
-    $sql = "SELECT * FROM students WHERE id = ? ";
-    $stmt = $pdo->prepare($sql);
-   
-    try {
-        $stmt ->execute([$id]);
-        $student = $stmt->fetch();
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
+    require_once("function.php");
+    $student = edit($_REQUEST);
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
