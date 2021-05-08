@@ -38,3 +38,14 @@
             echo $e->getMessage();
         }
     }
+    function delete($request){
+        global $pdo;
+        extract($request);
+        $sql = "DELETE FROM students WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute([$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
