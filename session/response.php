@@ -1,6 +1,12 @@
 <?php
     session_start();
-    extract($_REQUEST);
-    $_SESSION["USER"] = $user;
+    // extract($_REQUEST);
+    $_SESSION["AUTH"] = $_REQUEST;
 
-    echo $_SESSION["USER"];
+    extract($_SESSION["AUTH"]);
+
+    echo $user;
+    echo "<br>";
+    echo $pw;
+    echo "<br>";
+    echo $mail;

@@ -11,12 +11,19 @@
 </head>
 <body>
     <?php
-        if(isset($_SESSION["USER"])){
-            echo $_SESSION["USER"];
+        if(isset($_SESSION["AUTH"])){
+            extract($_SESSION["AUTH"]);
+            echo $user;
+            echo "<br>";
+            echo $pw;
+            echo "<br>";
+            echo $mail;
         }
     ?>
     <form action="response.php" method="post">
         <input type="text" name="user">
+        <input type="text" name="pw">
+        <input type="text" name="mail">
         <input type="submit" value="紀錄">
     </form>
 </body>
