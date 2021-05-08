@@ -1,9 +1,14 @@
 <?php
     require_once("pdo.php");
     $sql = "SELECT * FROM galleries";
-    $stmt = $pdo->prepare($sql);;
-    $stmt->execute();
-    $imgs = $stmt->fetchAll();
+    // $stmt = $pdo->prepare($sql);;
+    // $stmt->execute();
+    // $imgs = $stmt->fetchAll();
+
+    // $result = $pdo->query($sql);
+    // $imgs = $result->fetchAll();
+
+    $imgs = $pdo->query($sql)->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,16 +27,21 @@
             <img src="images/<?php echo $img["img_name"]; ?>" width="200">
             <form action="" method="post">
                 <input type="hidden" name="id" value="<?php echo $img["id"];?>">
-                <input type="submit" value="刪除">
+                <input type="hidden" name="img_name" value="<?php echo $img["img_name"];?>">
+                <input type="submit" value="刪除" onclick="return confirm('確認刪除？');">
             </form>
         </div>
     <?php } ?>
     <?php
-        // if(isset($_POST["img"])){
-        //     // echo $_POST["img"];
-        //     unlink($_POST["img"]);
-        //     header("location:list.php");
-        // }
+        if(isset($_POST["id"])){
+            extract($_POST);
+            unlink("images/".$img_name);
+            $sql = "DELETE FROM galleries WHERE id = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$id]);
+
+            header("location:list_db.php");
+        }
     ?>
 </body>
 </html>
