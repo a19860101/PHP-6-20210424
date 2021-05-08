@@ -13,6 +13,7 @@
     </form>
     <div>
         <a href="list.php">圖片列表</a>
+        <a href="list_db.php">圖片列表(資料庫)</a>
     </div>
 </body>
 </html>
