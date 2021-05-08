@@ -4,10 +4,11 @@
         $sql = "SELECT * FROM students";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
-        $students = array();
-        while($row = $stmt->fetch()){
-            $students[] = $row;
-        }
+        // $students = array();
+        // while($row = $stmt->fetch()){
+            // $students[] = $row;
+        // }
+        $students = $stmt->fetchAll();
     }catch(PDOException $e){
         echo $e->getMessage();
     }
