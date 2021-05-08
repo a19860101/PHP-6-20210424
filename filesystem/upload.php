@@ -35,4 +35,5 @@
     }
     if($error == 0){
         move_uploaded_file($tmp_name,"images/".$img_name);
+        header("location:index.php");
     }
