@@ -13,15 +13,15 @@
     <nav>
         
     <?php if(isset($_SESSION["AUTH"])){ ?>
+        <div>
+            <?php echo $_SESSION["AUTH"]["user"]; ?>你好
+        </div>
         <a href="logout.php">登出</a>
     <?php }else{ ?>
         <a href="login.php">登入</a>
         <a href="register.php">註冊</a>
     <?php } ?>
     </nav>
-    <div>
-        <?php echo $_SESSION["AUTH"]["user"]; ?>你好
-    </div>
     
 </body>
 </html>

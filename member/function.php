@@ -41,6 +41,4 @@
         }else{
             echo "<script>alert('帳號或密碼錯誤')</script>";
         }
-
-
     }
