@@ -25,3 +25,16 @@
             echo $e->getMessage();
         }
     }
+    function store($request){
+        global $pdo;
+        extract($request);
+        $sql = "INSERT INTO students(name, mail, gender, edu, skill, comment)VALUES(?,?,?,?,?,?)";
+        $stmt = $pdo->prepare($sql);
+        $skill = implode(",",$skill);
+        
+        try {
+            $stmt->execute([$name,$mail,$gender,$edu,$skill,$comment]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
