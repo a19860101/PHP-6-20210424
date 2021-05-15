@@ -1,7 +1,7 @@
 <?php
     function showAllPosts(){
         $pdo = pdo();
-        $sql = "SELECT * FROM posts ORDER BY id DESC";
+        $sql = "SELECT posts.*,users.user,users.mail FROM posts LEFT JOIN users ON posts.user_id = users.id";
         $stmt = $pdo->prepare($sql);
         try {
             $stmt->execute();

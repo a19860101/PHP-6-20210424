@@ -14,9 +14,11 @@
         <?php foreach($posts as $post){ ?>
         <div class="col-xl-8 col-10 border border-secondary p-4 my-3 rounded">
             <h3><?php echo $post["title"];?></h3>
+            <div class="my-3">
+                作者:<?php echo $post["user"]; ?>
+            </div>
             <div>
                 <?php echo $post["content"];?>
-
             </div>
             <div class="text-end">
                 <a href="show.php?id=<?php echo $post["id"];?>" class="btn btn-primary">繼續閱讀</a>
