@@ -37,3 +37,14 @@
             echo $e->getMessage();
         }
     }
+    function deletePost($request){
+        $pdo = pdo();
+        extract($request);
+        $sql = "DELETE FROM posts WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute([$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
