@@ -14,7 +14,7 @@
     function showPost($request){
         $pdo = pdo();
         extract($request);
-        $sql = "SELECT * FROM posts WHERE id = ?";
+        $sql = "SELECT * FROM posts WHERE id = ? ";
         $stmt = $pdo->prepare($sql);
         try {
             $stmt->execute([$id]);
