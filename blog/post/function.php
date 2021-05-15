@@ -37,6 +37,19 @@
             echo $e->getMessage();
         }
     }
+    function editPost($request){
+        $pdo = pdo();
+        extract($request);
+        $sql = "SELECT * FROM posts WHERE id = ?";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute([$id]);
+            $post = $stmt->fetch();
+            return $post;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     function deletePost($request){
         $pdo = pdo();
         extract($request);
