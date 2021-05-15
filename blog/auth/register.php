@@ -4,10 +4,14 @@
     <div class="row justify-content-center">
         <div class="col-6">
         <h1>會員註冊</h1>
-            <form action="" method="post">
+            <form action="store.php" method="post">
                 <div class="mb-3">
                     <label for="">帳號</label>
                     <input type="text" name="user" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="">Mail</label>
+                    <input type="text" name="mail" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="">密碼</label>
