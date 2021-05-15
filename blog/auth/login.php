@@ -3,15 +3,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6 bg-light border p-5 rounded">
-        <h1>會員註冊</h1>
+        <h1>會員登入</h1>
             <form action="store.php" method="post">
                 <div class="mb-3">
                     <label for="" class="form-label">帳號</label>
                     <input type="text" name="user" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Mail</label>
-                    <input type="text" name="mail" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">密碼</label>
@@ -22,5 +18,4 @@
         </div>
     </div>
 </div>
-
 <?php include("../template/footer.php"); ?>
