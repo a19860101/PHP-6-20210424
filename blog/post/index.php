@@ -17,7 +17,7 @@
             <div class="my-3">
                 作者:<?php echo $post["user"]; ?>
             </div>
-            <div>
+            <div class="my-3">
                 <?php echo $post["content"];?>
             </div>
             <div class="text-end">
