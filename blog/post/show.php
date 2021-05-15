@@ -9,8 +9,11 @@
     <div class="row justify-content-center">
         <div class="col-xl-8 col-10">
             <h2><?php echo $post["title"];?></h2>
+            <div class="my-3">
+                作者:<?php echo $post["user"]; ?>
+            </div>
             <hr>
-    
+            
             <div class=" my-3">
                 <?php echo $post["content"];?>
             </div>

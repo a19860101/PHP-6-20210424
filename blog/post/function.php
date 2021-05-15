@@ -14,7 +14,7 @@
     function showPost($request){
         $pdo = pdo();
         extract($request);
-        $sql = "SELECT * FROM posts WHERE id = ? ";
+        $sql = "SELECT posts.*,users.user,users.mail FROM posts LEFT JOIN users ON posts.user_id = users.id WHERE posts.id = ? ";
         $stmt = $pdo->prepare($sql);
         try {
             $stmt->execute([$id]);
