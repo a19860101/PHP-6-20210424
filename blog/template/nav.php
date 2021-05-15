@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">新增文章</a>
+                    <a class="nav-link active" aria-current="page" href="create.php">新增文章</a>
                 </li>
             </ul>
             <form class="d-flex">
