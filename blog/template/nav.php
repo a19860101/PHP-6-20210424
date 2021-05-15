@@ -1,3 +1,6 @@
+<?php
+    $webroot = "http://localhost/php-6-20210424/blog";
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Navbar</a>
@@ -7,18 +10,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="create.php">新增文章</a>
+                    <a class="nav-link active" aria-current="page" href="<?php echo $webroot;?>/post/create.php">新增文章</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item mx-1">
-                    <a href="#" class="btn btn-primary">登入</a>
+                    <a href="<?php echo $webroot;?>/auth/login.php" class="btn btn-primary">登入</a>
                 </li>
                 <li class="nav-item mx-1">
-                    <a href="#" class="btn btn-success">註冊</a>
+                    <a href="<?php echo $webroot;?>/auth/register.php" class="btn btn-success">註冊</a>
                 </li>
                 <li class="nav-item mx-1">
-                    <a href="#" class="btn btn-danger">登出</a>
+                    <a href="<?php echo $webroot;?>/auth/logout.php" class="btn btn-danger">登出</a>
                 </li>
             </ul>
             
