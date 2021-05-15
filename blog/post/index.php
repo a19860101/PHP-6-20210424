@@ -18,7 +18,10 @@
                 作者:<?php echo $post["user"]; ?>
             </div>
             <div class="my-3">
-                <?php echo $post["content"];?>
+                <?php
+                    $content = strip_tags($post["content"]);
+                    echo mb_substr($content,0,100);
+                ?>...
             </div>
             <div class="text-end">
                 <a href="show.php?id=<?php echo $post["id"];?>" class="btn btn-primary">繼續閱讀</a>
