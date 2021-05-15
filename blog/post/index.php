@@ -12,10 +12,14 @@
             <hr>
         </div>
         <?php foreach($posts as $post){ ?>
-        <div class="col-xl-8 col-10">
+        <div class="col-xl-8 col-10 border border-secondary p-4 my-3 rounded">
             <h3><?php echo $post["title"];?></h3>
             <div>
                 <?php echo $post["content"];?>
+
+            </div>
+            <div class="text-end">
+                <a href="show.php?id=<?php echo $post["id"];?>" class="btn btn-primary">繼續閱讀</a>
             </div>
             <div>
                 最後更新時間:<?php echo $post["updated_at"];?>
