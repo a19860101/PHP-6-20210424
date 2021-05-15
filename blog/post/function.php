@@ -24,7 +24,18 @@
             echo $e->getMessage();
         }
     }
-
+    function createPost(){
+        $pdo = pdo();
+        $sql = "SELECT * FROM categories ORDER BY id DESC";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute();
+            $categories = $stmt->fetchAll();
+            return $categories;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     function storePost($request){
         $pdo = pdo();
         extract($request);

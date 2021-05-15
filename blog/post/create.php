@@ -1,3 +1,8 @@
+<?php
+    require_once("../pdo.php");
+    require_once("function.php");
+    $categories = createPost();
+?>
 <?php include("../template/header.php"); ?>
 <?php include("../template/nav.php"); ?>
 <div class="container">
@@ -11,6 +16,14 @@
                 <div class="mb-3">
                     <label for="" class="form-label">文章標題</label>
                     <input type="text" class="form-control" name="title">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">文章分類</label>
+                    <select name="category_id" id="" class="form-control">
+                        <?php foreach($categories as $cate){ ?>
+                        <option value="<?php echo $cate["id"];?>"><?php echo $cate["title"];?></option>
+                        <?php } ?>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">文章內容</label>
