@@ -1,12 +1,12 @@
 <?php
-    function showAllPost(){
+    function showAllPosts(){
         $pdo = pdo();
-        $sql = "SELECT * FROM posts";
+        $sql = "SELECT * FROM posts ORDER BY id DESC";
         $stmt = $pdo->prepare($sql);
         try {
             $stmt->execute();
-            $students = $stmt->fetchAll();
-            return $students;
+            $posts = $stmt->fetchAll();
+            return $posts;
         }catch(PDOException $e){
             echo $e->getMessage();
         }
