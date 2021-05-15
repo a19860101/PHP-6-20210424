@@ -14,15 +14,19 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+                <?php if(!isset($_SESSION["AUTH"])){ ?>
                 <li class="nav-item mx-1">
                     <a href="<?php echo $webroot;?>/auth/login.php" class="btn btn-primary">登入</a>
                 </li>
                 <li class="nav-item mx-1">
                     <a href="<?php echo $webroot;?>/auth/register.php" class="btn btn-success">註冊</a>
                 </li>
+                <?php } ?>
+                <?php if(isset($_SESSION["AUTH"])){ ?>
                 <li class="nav-item mx-1">
                     <a href="<?php echo $webroot;?>/auth/logout.php" class="btn btn-danger">登出</a>
                 </li>
+                <?php } ?>
             </ul>
             
         </div>
