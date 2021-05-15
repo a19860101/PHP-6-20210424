@@ -50,6 +50,17 @@
             echo $e->getMessage();
         }
     }
+    function updatePost($request){
+        $pdo = pdo();
+        extract($request);
+        $sql = "UPDATE posts SET title=?,content=?,updated_at=now() WHERE id=?";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute([$title,$content,$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     function deletePost($request){
         $pdo = pdo();
         extract($request);

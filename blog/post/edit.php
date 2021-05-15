@@ -21,6 +21,7 @@
                     <label for="" class="form-label">文章內容</label>
                     <textarea name="content" id="" cols="30" rows="10" class="form-control"><?php echo $post["content"];?></textarea>
                 </div>
+                <input type="hidden" value="<?php echo $post["id"];?>" name="id">
                 <input type="submit" value="儲存" class="btn btn-primary">
                 <input type="button" value="取消" class="btn btn-danger" onclick="history.back()">
             </form>
