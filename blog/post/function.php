@@ -28,11 +28,11 @@
     function storePost($request){
         $pdo = pdo();
         extract($request);
-        $sql = "INSERT INTO posts(title,content,created_at,updated_at)VALUES(?,?,now(),now())";
+        $sql = "INSERT INTO posts(title,content,user_id,created_at,updated_at)VALUES(?,?,?,now(),now())";
         $stmt = $pdo->prepare($sql);
-        
+        $user_id = $_SESSION["AUTH"]["id"];
         try {
-            $stmt->execute([$title,$content]);
+            $stmt->execute([$title,$content,$user_id]);
         }catch(PDOException $e){
             echo $e->getMessage();
         }
