@@ -1,6 +1,8 @@
 <?php
     function pdo(){
-        session_start();
+        if(!isset($_SESSION)){
+            session_start();
+        }
         $db_host = "localhost";
         $db_user = "admin";
         $db_pw = "admin";

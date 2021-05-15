@@ -4,7 +4,9 @@
 
     if(isset($_POST["submit"])){
         storeCategory($_REQUEST);
-        // header("location:index.php");
+    }
+    if(isset($_POST["delete"])){
+        deleteCategory($_REQUEST);
     }
 
     $categories = showAllCategories();
@@ -32,8 +34,12 @@
             <h2 class="mb-4">分類列表</h2>
             <ul class="list-group">
                 <?php foreach($categories as $cate){ ?>
-                <li class="list-group-item">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                     <?php echo $cate["title"]; ?>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="<?php echo $cate["id"];?>">
+                        <input type="submit" name="delete" value="刪除" class="btn btn-danger" onclick="return confirm('確認刪除？')">
+                    </form>
                 </li>
                 <?php } ?>
             </ul>

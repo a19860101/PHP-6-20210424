@@ -22,10 +22,10 @@
             echo $e->getMessage();
         }
     }
-    function deleteCategory(){
+    function deleteCategory($request){
         $pdo = pdo();
         extract($request);
-        $sql = "DELETE FROM posts WHERE id = ?";
+        $sql = "DELETE FROM categories WHERE id = ?";
         $stmt = $pdo->prepare($sql);
         try {
             $stmt->execute([$id]);
