@@ -11,14 +11,14 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
+                <li class="nav-item mx-1">
                     <a href="#" class="btn btn-primary">登入</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="btn btn-primary">註冊</a>
+                <li class="nav-item mx-1">
+                    <a href="#" class="btn btn-success">註冊</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="btn btn-primary">登出</a>
+                <li class="nav-item mx-1">
+                    <a href="#" class="btn btn-danger">登出</a>
                 </li>
             </ul>
             
