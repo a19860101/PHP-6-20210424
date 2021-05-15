@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?php echo $webroot;?>/post/create.php">新增文章</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="<?php echo $webroot;?>/category/index.php">分類管理</a>
+                </li>
                 <?php } ?>
             </ul>
             <ul class="navbar-nav ms-auto">
