@@ -22,7 +22,7 @@
         <div class="col-xl-8 col-10">
             <form action="search.php" class="row g-0" method="get">
                 <div class="mb-3 col-10">
-                    <input type="text" class="form-control" placeholder="請輸入要搜尋的內容">
+                    <input type="text" name="search" class="form-control" placeholder="請輸入要搜尋的內容">
                 </div>
                 <div class="text-end col-2">
                     <input type="submit" value="搜尋" class="btn btn-primary">

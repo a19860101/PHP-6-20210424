@@ -176,4 +176,18 @@
             echo $e->getMessage(); 
         }
     }
+    function search($request){
+        $pdo = pdo();
+        extract($request);
+        $search_text = "%$search%";
+        $sql = "SELECT * FROM posts WHERE title LIKE {$search_text}";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute();
+            $posts = $stmt->fetchAll();
+            return $posts;
+        }catch(PDOException $e){
+            echo $e->getMessage(); 
+        }
+    }
     
