@@ -96,9 +96,10 @@
                 $ext = ".gif";
                 break;
             default:
-                echo "<script>alert('請使用正確的圖檔')</script>";
-                header("refresh:0;url=index.php");
-                return;
+                // echo "<script>alert('請使用正確的圖檔')</script>";
+                // header("refresh:0;url=create.php?error=1");
+                $msg = "請使用正確的圖檔";
+                return $msg;
         }
         $img_name = md5(time()).$ext;
         if(!is_dir("images")){
