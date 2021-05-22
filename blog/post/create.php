@@ -44,7 +44,9 @@
     tinymce.init({
         selector: '#content',
         language: 'zh_TW',
-        height: '500px'
+        height: '500px',
+        plugins: 'image code link lists',
+        toolbar: 'removeformat | image code link | styleselect bullist numlist | bold italic forecolor underline strikethrough | alignleft aligncenter alignright',
     })
 </script>
 <?php include("../template/footer.php"); ?>
