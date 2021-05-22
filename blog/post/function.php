@@ -179,11 +179,11 @@
     function search($request){
         $pdo = pdo();
         extract($request);
-        $search_text = "%$search%";
-        $sql = "SELECT * FROM posts WHERE title LIKE {$search_text}";
+        $search = "%".$search."%";
+        $sql = "SELECT * FROM posts WHERE title LIKE ?";
         $stmt = $pdo->prepare($sql);
         try {
-            $stmt->execute();
+            $stmt->execute([$search]);
             $posts = $stmt->fetchAll();
             return $posts;
         }catch(PDOException $e){
