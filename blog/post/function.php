@@ -36,17 +36,19 @@
             echo $e->getMessage();
         }
     }
-    function storePost($request){
-        $pdo = pdo();
-        extract($request);
-        $sql = "INSERT INTO posts(title,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,now(),now())";
-        $stmt = $pdo->prepare($sql);
-        $user_id = $_SESSION["AUTH"]["id"];
-        try {
-            $stmt->execute([$title,$content,$category_id,$user_id]);
-        }catch(PDOException $e){
-            echo $e->getMessage();
-        }
+    function storePost($request,$files){
+
+        uploadCover($files);
+        // $pdo = pdo();
+        // extract($request);
+        // $sql = "INSERT INTO posts(title,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,now(),now())";
+        // $stmt = $pdo->prepare($sql);
+        // $user_id = $_SESSION["AUTH"]["id"];
+        // try {
+        //     $stmt->execute([$title,$content,$category_id,$user_id]);
+        // }catch(PDOException $e){
+        //     echo $e->getMessage();
+        // }
     }
     function editPost($request){
         $pdo = pdo();
@@ -82,4 +84,8 @@
         }catch(PDOException $e){
             echo $e->getMessage();
         }
+    }
+    function uploadCover($files){
+        extract($files);
+        echo $name;
     }

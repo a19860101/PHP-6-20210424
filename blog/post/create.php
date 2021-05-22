@@ -12,10 +12,14 @@
             <hr>
         </div>
         <div class="col-xl-8 col-10">
-            <form action="store.php" method="post">
+            <form action="store.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="" class="form-label">文章標題</label>
                     <input type="text" class="form-control" name="title">
+                </div>
+                <div class="mb-3">
+                    <label for="form-label">封面圖片</label>
+                    <input type="file" name="cover">
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">文章分類</label>
