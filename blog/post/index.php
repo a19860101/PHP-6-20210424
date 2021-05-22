@@ -5,6 +5,18 @@
 ?>
 <?php include("../template/header.php"); ?>
 <?php include("../template/nav.php"); ?>
+<style>
+    .cover {
+        width: 100%;
+        height: 200px;
+    }
+    .cover img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xl-8 col-10">
@@ -14,6 +26,14 @@
         <?php foreach($posts as $post){ ?>
         <div class="col-xl-8 col-10 border border-secondary p-4 my-3 rounded">
             <h3><?php echo $post["title"];?></h3>
+            <div class="cover">
+                <?php if($post["cover"] != ""){ ?>
+                <img src="images/<?php echo $post["cover"];?>" alt="">
+                <?php }else{?>
+                    <img src="images/question-marks.jpg" alt="">
+                <?php } ?>
+
+            </div>
             <div class="my-3">
                 作者<a href="toxonomies.php?user_id=<?php echo $post["user_id"];?>">:<?php echo $post["user"]; ?></a>
                 <br>
