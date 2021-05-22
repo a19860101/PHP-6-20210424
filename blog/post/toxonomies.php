@@ -1,7 +1,7 @@
 <?php
     require_once("../pdo.php");
     require_once("function.php");
-    $posts = showAllPosts();
+    $posts = showPostWithCategory($_REQUEST);
 ?>
 <?php include("../template/header.php"); ?>
 <?php include("../template/nav.php"); ?>
@@ -14,18 +14,6 @@
         <?php foreach($posts as $post){ ?>
         <div class="col-xl-8 col-10 border border-secondary p-4 my-3 rounded">
             <h3><?php echo $post["title"];?></h3>
-            <div class="my-3">
-                作者:<?php echo $post["user"]; ?>
-                <br>
-                分類:
-                    <a href="toxonomies.php?category_id=<?php echo $post["category_id"];?>"><?php echo $post["c_title"];?></a>
-            </div>
-            <div class="my-3">
-                <?php
-                    $content = strip_tags($post["content"]);
-                    echo mb_substr($content,0,100);
-                ?>...
-            </div>
             <div class="text-end">
                 <a href="show.php?id=<?php echo $post["id"];?>" class="btn btn-primary">繼續閱讀</a>
             </div>
@@ -37,6 +25,3 @@
     </div>
 </div>
 <?php include("../template/footer.php"); ?>
-
-
-    

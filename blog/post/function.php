@@ -121,3 +121,16 @@
             echo "上傳錯誤";
         }
     }
+    function showPostWithCategory($request){
+        $pdo = pdo();
+        extract($request);
+        $sql = "SELECT * FROM posts WHERE category_id = ? ORDER BY id DESC";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute([$category_id]);
+            $posts = $stmt->fetchAll();
+            return $posts;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
