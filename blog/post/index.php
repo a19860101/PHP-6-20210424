@@ -16,6 +16,8 @@
             <h3><?php echo $post["title"];?></h3>
             <div class="my-3">
                 作者:<?php echo $post["user"]; ?>
+                <br>
+                分類:<?php echo $post["c_title"];?>
             </div>
             <div class="my-3">
                 <?php
