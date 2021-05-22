@@ -36,19 +36,17 @@
             echo $e->getMessage();
         }
     }
-    function storePost($request,$files){
-
-        uploadCover($files);
-        // $pdo = pdo();
-        // extract($request);
-        // $sql = "INSERT INTO posts(title,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,now(),now())";
-        // $stmt = $pdo->prepare($sql);
-        // $user_id = $_SESSION["AUTH"]["id"];
-        // try {
-        //     $stmt->execute([$title,$content,$category_id,$user_id]);
-        // }catch(PDOException $e){
-        //     echo $e->getMessage();
-        // }
+    function storePost($request,$cover){
+        $pdo = pdo();
+        extract($request);
+        $sql = "INSERT INTO posts(title,cover,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,?,now(),now())";
+        $stmt = $pdo->prepare($sql);
+        $user_id = $_SESSION["AUTH"]["id"];
+        try {
+            $stmt->execute([$title,$cover,$content,$category_id,$user_id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
     function editPost($request){
         $pdo = pdo();
@@ -87,5 +85,35 @@
     }
     function uploadCover($files){
         extract($files);
-        echo $name;
+        switch($type){
+            case "image/jpeg":
+                $ext = ".jpg";
+                break;
+            case "image/png":
+                $ext = ".png";
+                break;
+            case "image/gif":
+                $ext = ".gif";
+                break;
+            default:
+                echo "<script>alert('請使用正確的圖檔')</script>";
+                header("refresh:0;url=index.php");
+                return;
+        }
+        $img_name = md5(time()).$ext;
+        if(!is_dir("images")){
+            mkdir("images");
+        }
+    
+        if($error == 0){
+            if(move_uploaded_file($tmp_name,"images/".$img_name)){
+                // echo "<script>alert('圖片已上傳');</script>";
+                // header("refresh:0;url=index.php");
+                return $img_name;
+            }else{
+                echo "上傳失敗";
+            }
+        }else{
+            echo "上傳錯誤";
+        }
     }
