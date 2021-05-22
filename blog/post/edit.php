@@ -5,7 +5,25 @@
 ?>
 <?php include("../template/header.php"); ?>
 <?php include("../template/nav.php"); ?>
-<div class="container">
+<style>
+    header {
+        height: 200px;
+    }
+    header img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+</style>
+<header>
+    <?php if($post["cover"] != ""){ ?>
+        <img src="images/<?php echo $post["cover"];?>" alt="">
+    <?php }else{?>
+        <img src="images/question-marks.jpg" alt="">
+    <?php } ?>
+</header>
+<div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-xl-8 col-10">
             <h2>編輯文章</h2>

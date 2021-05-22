@@ -8,7 +8,7 @@
 <style>
     .cover {
         width: 100%;
-        height: 200px;
+        height: 300px;
     }
     .cover img{
         width: 100%;
@@ -17,7 +17,7 @@
         object-position: center;
     }
 </style>
-<div class="container">
+<div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-xl-8 col-10">
             <h2>文章列表</h2>
