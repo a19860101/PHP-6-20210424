@@ -15,7 +15,7 @@
         <div class="col-xl-8 col-10 border border-secondary p-4 my-3 rounded">
             <h3><?php echo $post["title"];?></h3>
             <div class="my-3">
-                作者:<?php echo $post["user"]; ?>
+                作者<a href="toxonomies.php?user_id=<?php echo $post["user_id"];?>">:<?php echo $post["user"]; ?></a>
                 <br>
                 分類:
                     <a href="toxonomies.php?category_id=<?php echo $post["category_id"];?>"><?php echo $post["c_title"];?></a>

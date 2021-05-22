@@ -1,14 +1,21 @@
 <?php
     require_once("../pdo.php");
     require_once("function.php");
-    $posts = showPostWithCategory($_REQUEST);
+    if(isset($_REQUEST["category_id"])){
+        $posts = showPostWithCategory($_REQUEST);
+        $title = "分類";
+    }
+    if(isset($_REQUEST["user_id"])){
+        $posts = showPostWithUser($_REQUEST);
+        $title = "作者";
+    }
 ?>
 <?php include("../template/header.php"); ?>
 <?php include("../template/nav.php"); ?>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xl-8 col-10">
-            <h2>文章列表</h2>
+            <h2><?php echo $title; ?></h2>
             <hr>
         </div>
         <?php foreach($posts as $post){ ?>

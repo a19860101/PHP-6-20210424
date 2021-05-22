@@ -131,6 +131,19 @@
             $posts = $stmt->fetchAll();
             return $posts;
         }catch(PDOException $e){
-            echo $e->getMessage();
+            echo $e->getMessage(); 
+        }
+    }
+    function showPostWithUser($request){
+        $pdo = pdo();
+        extract($request);
+        $sql = "SELECT * FROM posts WHERE user_id = ? ORDER BY id DESC";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute([$user_id]);
+            $posts = $stmt->fetchAll();
+            return $posts;
+        }catch(PDOException $e){
+            echo $e->getMessage(); 
         }
     }
