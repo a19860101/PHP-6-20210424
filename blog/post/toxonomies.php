@@ -3,11 +3,13 @@
     require_once("function.php");
     if(isset($_REQUEST["category_id"])){
         $posts = showPostWithCategory($_REQUEST);
-        $title = "分類";
+        $category = showCategory($_REQUEST);
+        $title = "分類 \"{$category}\" ";
     }
     if(isset($_REQUEST["user_id"])){
         $posts = showPostWithUser($_REQUEST);
-        $title = "作者";
+        $user = showUser($_REQUEST);
+        $title = "作者 \"{$user} \"";
     }
 ?>
 <?php include("../template/header.php"); ?>

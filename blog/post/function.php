@@ -147,3 +147,30 @@
             echo $e->getMessage(); 
         }
     }
+    function showUser($request){
+        $pdo = pdo();
+        extract($request);
+        $sql = "SELECT * FROM users WHERE id = ? LIMIT 1";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute([$user_id]);
+            $user = $stmt->fetch();
+            return $user["user"];
+        }catch(PDOException $e){
+            echo $e->getMessage(); 
+        }
+    }
+    function showCategory($request){
+        $pdo = pdo();
+        extract($request);
+        $sql = "SELECT * FROM categories WHERE id = ? LIMIT 1";
+        $stmt = $pdo->prepare($sql);
+        try {
+            $stmt->execute([$category_id]);
+            $category = $stmt->fetch();
+            return $category["title"];
+        }catch(PDOException $e){
+            echo $e->getMessage(); 
+        }
+    }
+    
