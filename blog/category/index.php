@@ -1,7 +1,7 @@
 <?php
     require_once("../pdo.php");
     require_once("function.php");
-
+    accessDeniedAdmin();
     if(isset($_POST["submit"])){
         storeCategory($_REQUEST);
     }
@@ -14,7 +14,7 @@
 ?>
 <?php include("../template/header.php"); ?>
 <?php include("../template/nav.php"); ?>
-<div class="container">
+<div class="container my-5">
     <div class="row">
         <div class="col-8">
             <h2>新增分類</h2>

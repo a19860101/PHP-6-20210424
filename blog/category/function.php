@@ -33,3 +33,17 @@
             echo $e->getMessage();
         }
     }
+    function accessDenied(){
+        session_start();
+        if(!isset($_SESSION["AUTH"])){
+            header('location:../post/index.php');
+            return;
+        }
+    }
+    function accessDeniedAdmin(){
+        session_start();
+        if(!isset($_SESSION["AUTH"]) || $_SESSION["AUTH"]["role"] != 0){
+            header('location:../post/index.php');
+            return;
+        }
+    }
