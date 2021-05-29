@@ -8,8 +8,8 @@
 <style>
     .gallery label {
         display: inline-block;
-        width: 100px;
-        height: 80px;
+        width: 200px;
+        height: 150px;
         margin: 5px;
         cursor: pointer;
         border: 5px solid #fff;
@@ -113,6 +113,11 @@
         <label for="<?php echo $g; ?>">
             <img src="<?php echo $g; ?>" width="200">
         </label>
+        <form action="deleteCover.php" class="d-inline-block">
+            <input type="hidden" value="<?php echo $g; ?>" name="img">
+            <input type="submit" value="刪除" onclick="return confirm('確認刪除？')">
+        </form>
+        
         <?php } ?>
         <hr>
         <a href="#" class="selected">送出</a>
