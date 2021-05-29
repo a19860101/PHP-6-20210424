@@ -54,9 +54,14 @@
 </head>
 <body>
     <form action="">
-
-        <a href="#" id="selectImg">選擇圖片</a>
-
+        <?php if(isset($_GET["img"])){ ?>
+            <input type="hidden" value="<?php echo $_GET["img"]; ?>">
+            <img src="<?php echo $_GET["img"]; ?>" width="200">
+            <a href="#" id="selectImg">切換圖片</a>
+        <?php }else{ ?>
+            <a href="#" id="selectImg">選擇圖片</a>
+            <input type="hidden" value="">
+        <?php } ?>
     </form>
     <div class="gallery" 
         <?php if(isset($_GET["gallery"])){ ?> 
@@ -90,7 +95,22 @@
                 $('.gallery').show();
             })
             $('.selected').click(function(){
-                $('.gallery').hide();
+                $.ajax({
+                    url:'index.php',
+                    type:'get',
+                    data: {
+                        img: $('.img:checked').val()
+                    },
+                    success(){
+                        console.log(this.url)
+                        location.href = this.url;
+                        $('.gallery').hide();
+                    },
+                    error(){
+
+                    }
+                })
+                
             })
             $('.cancel').click(function(){
                 $('.gallery').hide();
