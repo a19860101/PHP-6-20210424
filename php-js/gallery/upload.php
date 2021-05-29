@@ -21,11 +21,9 @@
     }
 
     $sql = "INSERT INTO galleries(name,img_name,created_at)VALUES(?,?,now())";
-    $stmt = $pdo->prepare($sql);
 
     if($error == 0){
         if(move_uploaded_file($tmp_name,"images/".$img_name)){
-            $stmt->execute([$name,$img_name]);
             echo "<script>alert('圖片已上傳');</script>";
             header("refresh:0;url=index.php");
         }else{

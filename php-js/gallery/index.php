@@ -61,7 +61,7 @@
     <div class="gallery">
         <div class="gallery-overlay"></div>
         <div class="gallery-container">
-            <form action="upload.php" method="post">
+            <form action="upload.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="img">
                 <input type="submit" value="上傳圖片">
             </form>
