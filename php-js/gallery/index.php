@@ -9,9 +9,9 @@
 
         label {
             display: inline-block;
-            width: 200px;
-            height: 150px;
-            margin: 10px;
+            width: 100px;
+            height: 80px;
+            margin: 5px;
             cursor: pointer;
             border: 5px solid #fff;
         }
@@ -58,7 +58,10 @@
         <a href="#" id="selectImg">選擇圖片</a>
 
     </form>
-    <div class="gallery">
+    <div class="gallery" 
+        <?php if(isset($_GET["gallery"])){ ?> 
+            style="display:block" 
+        <?php } ?>>
         <div class="gallery-overlay"></div>
         <div class="gallery-container">
             <form action="upload.php" method="post" enctype="multipart/form-data">

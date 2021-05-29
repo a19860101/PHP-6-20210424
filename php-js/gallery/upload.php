@@ -25,7 +25,7 @@
     if($error == 0){
         if(move_uploaded_file($tmp_name,"images/".$img_name)){
             echo "<script>alert('圖片已上傳');</script>";
-            header("refresh:0;url=index.php");
+            header("refresh:0;url=index.php?gallery=1");
         }else{
             echo "上傳失敗";
         }
