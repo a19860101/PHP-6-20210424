@@ -15,7 +15,7 @@
 <body>
 <div>
     <h2>編輯學員資料</h2>
-    <form action="update.php" method="post">
+    <form action="" method="post">
         <div class="mb-3">
             <label for="" class="form-label">姓名</label>
             <input type="text" class="form-control" name="name" value="<?php echo $student["name"]; ?>">
@@ -63,6 +63,26 @@
         <input type="submit" value="儲存" class='btn btn-primary'>
         <input type="button" value="取消" onclick="history.back()">
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(function(){
+            $('form').submit(function(){
+                $.ajax({
+                    url: 'update.php',
+                    data:$('form').serialize(),
+                    type: 'post',
+                    success(){
+                        location.href='index.php'
+                    },
+                    error(){
+                        console.log('error');
+                    }
+                })
+                return false
+            })
+        })
+    </script>
 </div>
 </body>
 </html>
