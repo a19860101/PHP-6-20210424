@@ -55,12 +55,12 @@
 <body>
     <form action="">
         <?php if(isset($_GET["img"])){ ?>
-            <input type="hidden" value="<?php echo $_GET["img"]; ?>">
+            <input type="text" value="<?php echo $_GET["img"]; ?>">
             <img src="<?php echo $_GET["img"]; ?>" width="200">
             <a href="#" id="selectImg">切換圖片</a>
         <?php }else{ ?>
             <a href="#" id="selectImg">選擇圖片</a>
-            <input type="hidden" value="">
+            <input type="text" value="">
         <?php } ?>
     </form>
     <div class="gallery" 
