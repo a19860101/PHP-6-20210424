@@ -24,9 +24,20 @@
     <a href="index.php">學員列表</a>
     <hr>
     <a href="edit.php?id=<?php echo $student["id"]; ?>">編輯</a>
-    <form action="delete.php" method="post">
-        <input type="hidden" name="id" value="<?php echo $student["id"];?>">
-        <input type="submit" value="刪除" onclick="return confirm('確認刪除？')">
+    <form action="" method="post">
+        <input type="hidden" name="id" value="<?php echo $student["id"];?>" id="del">
+        <input type="submit" value="刪除">
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function(){
+            $('form').submit(function(){
+                // let data = $('form').serialize;
+                let data = $('#del').val();
+                console.log(data);
+                return false;
+            })
+        })
+    </script>
 </body>
 </html>
