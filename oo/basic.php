@@ -2,12 +2,20 @@
     class Car {
         public $brand;
         public $color = "white";
+
+        public function run(){
+            // return 'Car Run';
+            return $this->color;
+        }
     }
 
     $test = new Car;
     $test->brand ="Toyota";
-    print_r($test);
+    $run = $test->run('red');
+
+    print_r($run);
+    print_r($test->color);
 
     $test2 = new Car;
     $test2->brand = "Nissan";
-    print_r($test2);
+    // print_r($test2);
