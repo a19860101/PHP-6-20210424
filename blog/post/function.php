@@ -42,11 +42,12 @@
             echo $e->getMessage();
         }
     }
-    function storePost($request,$cover){
+    function storePost($request){
         $pdo = pdo();
         extract($request);
         $sql = "INSERT INTO posts(title,cover,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,?,now(),now())";
         $stmt = $pdo->prepare($sql);
+        $cover = substr($cover,7);
         $user_id = $_SESSION["AUTH"]["id"];
         try {
             $stmt->execute([$title,$cover,$content,$category_id,$user_id]);
