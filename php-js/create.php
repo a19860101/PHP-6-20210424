@@ -9,7 +9,7 @@
 <body>
 <div>
     <h2>新增學員資料</h2>
-    <form action="store.php" method="post">
+    <form action="" method="post" id="storeStudent">
         <div class="mb-3">
             <label for="" class="form-label">姓名</label>
             <input type="text" class="form-control" name="name">
@@ -50,9 +50,17 @@
             <label for="comment" class="form-label">備註</label>
             <textarea name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
         </div>
-        <input type="submit" value="送出" class='btn btn-primary'>
+        <input type="submit" value="送出" class='btn btn-primary storeStudent'>
         <input type="button" value="取消" onclick="history.back()">
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function(){
+            // $('form').submit();
+            $('#storeStudent').submit();
+            // $('.storeStudent').click();
+        })
+    </script>
 </div>
 </body>
 </html>
