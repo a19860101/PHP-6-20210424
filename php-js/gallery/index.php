@@ -12,7 +12,8 @@
             width: 200px;
             height: 150px;
             margin: 10px;
-
+            cursor: pointer;
+            border: 5px solid #fff;
         }
 
         label img {
@@ -21,6 +22,13 @@
             object-fit: cover;
             object-position: center;
            
+        }
+        .img {
+            display: none;
+            
+        }
+        .img:checked + label{
+            border: 5px solid #f00;
         }
         .gallery {
             display: none;
@@ -62,9 +70,9 @@
                 $galleries = glob("images/*.{jpeg,jpg,png,gif,webp,JPG}",GLOB_BRACE);
                 foreach($galleries as $g){
             ?>
+            <input type="radio" name="img" id="<?php echo $g; ?>" value="<?php echo $g; ?>" class="img">
             <label for="<?php echo $g; ?>">
                 <img src="<?php echo $g; ?>" width="200">
-                <input type="radio" name="img" id="<?php echo $g; ?>" value="<?php echo $g; ?>">
             </label>
             <?php } ?>
             <hr>
