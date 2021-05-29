@@ -23,7 +23,7 @@
     </ul>
     <a href="index.php">學員列表</a>
     <hr>
-    <a href="edit.php?id=<?php echo $student["id"]; ?>">編輯</a>
+    <a href="edit.php?id=<?php echo $student["id"]; ?>" id="updateStudent">編輯</a>
     <form action="" method="post">
         <input type="hidden" name="id" value="<?php echo $student["id"];?>" id="del">
         <!-- <input type="submit" value="刪除" onclick="return confirm()"> -->
@@ -32,6 +32,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <script>
         $(function(){
+            $('#updateStudent').click(function(){
+                $.ajax({
+                    url: 'edit.php',
+                    data:{},
+                    type: 'get',
+                    success(){
+                        location.href='index.php'
+                    },
+                    error(){
+                        console.log('error');
+                    }
+                })
+            })
             $('form').submit(function(){
                 // let data = $('#del').val();
                 // console.log(data);
