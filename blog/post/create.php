@@ -68,12 +68,12 @@
                     <label for="form-label">封面圖片</label>
                     <!-- <input type="file" name="cover"> -->
                     <?php if(isset($_GET["img"])){ ?>
-                        <input type="text" value="<?php echo $_GET["img"]; ?>">
+                        <input type="hidden" value="<?php echo $_GET["img"]; ?>" name="cover">
                         <img src="<?php echo $_GET["img"]; ?>" width="200">
                         <a href="#" id="selectImg">切換圖片</a>
                     <?php }else{ ?>
                         <a href="#" id="selectImg">選擇圖片</a>
-                        <input type="text" value="">
+                        <input type="hidden" value="" name="cover">
                     <?php } ?>
                 </div>
                 <div class="mb-3">
